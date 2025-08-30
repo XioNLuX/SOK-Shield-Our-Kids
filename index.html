@@ -382,13 +382,6 @@
             text-decoration: underline;
         }
 
-        /* Firearm Safety Section */
-        #firearms {
-            background: 
-                linear-gradient(rgba(248, 250, 252, 0.95), rgba(248, 250, 252, 0.95)),
-                url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
-        }
-        
         /* Get Help Section */
         .help-section {
             background: 
@@ -470,6 +463,17 @@
         }
         
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -494,6 +498,28 @@
             
             .section-title {
                 font-size: 2.2rem;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .resource-card {
+                padding: 1.5rem;
             }
         }
         
@@ -525,6 +551,8 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#mission">Mission</a></li>
+                <li><a href="#digital-monitoring">Digital Safety</a></li>
+                <li><a href="#know-signs">Know the Signs</a></li>
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="#firearms">Firearm Safety</a></li>
                 <li><a href="#materials">Educational Materials</a></li>
@@ -591,6 +619,284 @@
                         <div class="mission-icon">💪</div>
                         <h3>Building Resilience</h3>
                         <p>Developing programs that build emotional resilience, teach healthy coping strategies, and provide positive outlets for stress, anger, and frustration through creative and therapeutic activities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="digital-monitoring" class="section" style="background: linear-gradient(rgba(245, 247, 250, 0.95), rgba(245, 247, 250, 0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;">
+            <div class="container">
+                <h2 class="section-title">Digital Monitoring Guide for Parents</h2>
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <p style="font-size: 1.2rem; color: #4a5568; max-width: 900px; margin: 0 auto;">
+                        Modern parenting requires digital awareness. Learn how to effectively monitor your child's online activity, recognize concerning digital behaviors, and maintain trust while ensuring safety in today's connected world.
+                    </p>
+                </div>
+                
+                <div class="resources-grid">
+                    <div class="resource-card fade-in" style="border-left: 5px solid #3b82f6;">
+                        <h3>📱 Smartphone Monitoring Basics</h3>
+                        <p><strong>Essential monitoring strategies for mobile devices:</strong></p>
+                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <p style="margin-top: 1rem;"><strong>Transparent monitoring approach:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Explain why monitoring is necessary (safety, not distrust)</li>
+                                <li>Involve teens in setting up monitoring systems</li>
+                                <li>Regular family meetings about digital safety</li>
+                                <li>Earn trust through consistency and fairness</li>
+                                <li>Gradually reduce monitoring as trust and maturity increase</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>When to increase monitoring:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>After discovering concerning content or behaviors</li>
+                                <li>During mental health crises or depression</li>
+                                <li>Following disciplinary issues at school</li>
+                                <li>When friends or teachers express concerns</li>
+                                <li>During major life transitions or family stress</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card fade-in" style="border-left: 5px solid #7c2d12;">
+                        <h3>🛠️ Technical Implementation Guide</h3>
+                        <p><strong>Step-by-step setup for effective monitoring:</strong></p>
+                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <p><strong>Getting started (Week 1):</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Audit all devices your child uses</li>
+                                <li>Set up built-in parental controls on each device</li>
+                                <li>Install one comprehensive monitoring app</li>
+                                <li>Configure router-level filtering</li>
+                                <li>Have "the talk" about digital safety and monitoring</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Weekly monitoring routine:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>Monday:</strong> Review weekend screen time reports</li>
+                                <li><strong>Wednesday:</strong> Check new app downloads and web history</li>
+                                <li><strong>Friday:</strong> Review messaging and social media activity</li>
+                                <li><strong>Sunday:</strong> Family discussion about digital week</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Emergency protocols:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>If you find concerning content: don't panic, document everything</li>
+                                <li>Immediately secure all devices if threats are discovered</li>
+                                <li>Contact school counselors for guidance</li>
+                                <li>Report illegal content to authorities</li>
+                                <li>Consider professional counseling for concerning behaviors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #1e40af 0%, #7c2d12 100%); color: white; border-radius: 15px; padding: 2rem; margin-top: 3rem;">
+                    <h3 style="color: white; margin-bottom: 1rem; text-align: center;">🔐 Quick Setup Checklist</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div>
+                            <h4 style="color: #fbbf24; margin-bottom: 1rem;">Essential Tools</h4>
+                            <ul style="line-height: 1.8;">
+                                <li>✓ Router admin access configured</li>
+                                <li>✓ Device-specific parental controls active</li>
+                                <li>✓ At least one monitoring app installed</li>
+                                <li>✓ Family media agreement signed</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #fbbf24; margin-bottom: 1rem;">Weekly Reviews</h4>
+                            <ul style="line-height: 1.8;">
+                                <li>✓ Screen time reports examined</li>
+                                <li>✓ App usage patterns reviewed</li>
+                                <li>✓ Communication logs checked</li>
+                                <li>✓ Family digital safety discussion</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #fbbf24; margin-bottom: 1rem;">Emergency Contacts</h4>
+                            <ul style="line-height: 1.8;">
+                                <li>✓ School counselor contact info</li>
+                                <li>✓ Local law enforcement non-emergency</li>
+                                <li>✓ Internet Crimes Against Children tip line</li>
+                                <li>✓ Family therapist referral ready</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 2rem; font-style: italic;">
+                        Remember: The goal isn't to spy on your children, but to keep them safe while teaching responsible digital citizenship.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="know-signs" class="section">
+            <div class="container">
+                <h2 class="section-title">Know the Signs</h2>
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <p style="font-size: 1.2rem; color: #4a5568; max-width: 900px; margin: 0 auto;">
+                        Early identification of concerning behaviors can save lives. Understanding warning signs, monitoring mental health, and knowing when to seek help are critical skills for parents, educators, and community members.
+                    </p>
+                </div>
+                
+                <div class="resources-grid">
+                    <div class="resource-card fade-in" style="border-left: 5px solid #dc2626;">
+                        <h3>⚠️ Immediate Warning Signs</h3>
+                        <p><strong>Seek immediate help if you observe:</strong></p>
+                        <ul style="text-align: left; margin-top: 1rem; line-height: 1.8; color: #2d3748;">
+                            <li><strong>Direct threats</strong> - Verbal or written threats to harm others</li>
+                            <li><strong>Detailed plans</strong> - Specific discussions of violence or revenge</li>
+                            <li><strong>Weapon acquisition</strong> - Seeking access to firearms or other weapons</li>
+                            <li><strong>Rehearsal behaviors</strong> - Practicing attacks or violent scenarios</li>
+                            <li><strong>Final acts</strong> - Giving away possessions, saying goodbye</li>
+                            <li><strong>Fixation on violence</strong> - Obsession with mass violence events</li>
+                            <li><strong>Timeline pressure</strong> - Mentions of specific dates or deadlines</li>
+                        </ul>
+                        <div style="background: #fee2e2; border: 1px solid #fca5a5; border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                            <strong style="color: #dc2626;">If any of these signs are present, contact law enforcement immediately. Do not wait.</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card fade-in" style="border-left: 5px solid #f59e0b;">
+                        <h3>📊 Behavioral Changes to Monitor</h3>
+                        <p><strong>Watch for significant changes in:</strong></p>
+                        <ul style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <li><strong>Social isolation</strong> - Withdrawing from friends and activities</li>
+                            <li><strong>Academic performance</strong> - Sudden decline in grades or attendance</li>
+                            <li><strong>Sleep patterns</strong> - Insomnia, nightmares, or excessive sleeping</li>
+                            <li><strong>Appetite changes</strong> - Significant weight loss or gain</li>
+                            <li><strong>Hygiene neglect</strong> - Sudden lack of self-care</li>
+                            <li><strong>Mood swings</strong> - Extreme emotional fluctuations</li>
+                            <li><strong>Increased aggression</strong> - Unusual anger or violence toward people/animals</li>
+                            <li><strong>Risk-taking</strong> - Reckless or dangerous behaviors</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-card fade-in" style="border-left: 5px solid #7c3aed;">
+                        <h3>🧠 Mental Health Red Flags</h3>
+                        <p><strong>Signs of potential mental health crisis:</strong></p>
+                        <ul style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <li><strong>Depression signs:</strong>
+                                <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                                    <li>Persistent sadness or hopelessness</li>
+                                    <li>Loss of interest in previously enjoyed activities</li>
+                                    <li>Feelings of worthlessness or excessive guilt</li>
+                                </ul>
+                            </li>
+                            <li><strong>Anxiety indicators:</strong>
+                                <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                                    <li>Excessive worry or fear</li>
+                                    <li>Panic attacks or physical symptoms</li>
+                                    <li>Avoidance of normal activities</li>
+                                </ul>
+                            </li>
+                            <li><strong>Concerning thoughts:</strong>
+                                <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                                    <li>Obsessive thoughts about violence or revenge</li>
+                                    <li>Paranoid beliefs or conspiracy theories</li>
+                                    <li>Grandiose plans or unrealistic thinking</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-card fade-in" style="border-left: 5px solid #059669;">
+                        <h3>💬 How to Check Your Child's Mental Health</h3>
+                        <p><strong>Regular mental health check-ins:</strong></p>
+                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <p><strong>Create safe conversation spaces:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Schedule regular one-on-one time without distractions</li>
+                                <li>Ask open-ended questions: "How are you feeling lately?"</li>
+                                <li>Listen without judgment or immediate solutions</li>
+                                <li>Validate their emotions, even if you don't understand</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Monitor digital activity responsibly:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Be aware of social media posts and interactions</li>
+                                <li>Notice changes in online behavior or friend groups</li>
+                                <li>Watch for concerning content consumption</li>
+                                <li>Balance privacy with safety concerns</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Stay connected with their world:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Know their friends, teachers, and activities</li>
+                                <li>Attend school events and maintain teacher contact</li>
+                                <li>Be aware of academic and social pressures</li>
+                                <li>Notice changes in peer relationships</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card fade-in" style="border-left: 5px solid #0891b2;">
+                        <h3>🎯 Risk Factors to Understand</h3>
+                        <p><strong>Factors that may increase risk:</strong></p>
+                        <ul style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <li><strong>Personal grievances</strong> - Real or perceived injustices</li>
+                            <li><strong>Social rejection</strong> - Bullying, exclusion, or romantic rejection</li>
+                            <li><strong>Family stress</strong> - Divorce, abuse, financial problems</li>
+                            <li><strong>Academic failure</strong> - Poor grades, disciplinary actions</li>
+                            <li><strong>Substance abuse</strong> - Alcohol or drug use affecting judgment</li>
+                            <li><strong>Access to weapons</strong> - Unsecured firearms in the home</li>
+                            <li><strong>Media influence</strong> - Obsession with violent content or mass shooters</li>
+                            <li><strong>Mental health issues</strong> - Untreated depression, anxiety, or other conditions</li>
+                        </ul>
+                        <p style="margin-top: 1rem; font-style: italic; color: #4a5568;">
+                            <strong>Important:</strong> Having risk factors does not mean someone will become violent. These are indicators to watch more closely and provide additional support.
+                        </p>
+                    </div>
+                    
+                    <div class="resource-card fade-in" style="border-left: 5px solid #be185d;">
+                        <h3>🆘 When and How to Get Help</h3>
+                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <p><strong>Immediate action required:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Call 911 for immediate threats</li>
+                                <li>Contact school administration about school-specific threats</li>
+                                <li>Report concerning online activity to appropriate platforms</li>
+                                <li>Remove access to weapons immediately</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Professional help options:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>Primary care physician</strong> - First step for medical evaluation</li>
+                                <li><strong>Mental health professionals</strong> - Therapists, counselors, psychiatrists</li>
+                                <li><strong>School counselors</strong> - Immediate support and resources</li>
+                                <li><strong>Crisis hotlines</strong> - 988 Suicide & Crisis Lifeline</li>
+                                <li><strong>Hospital emergency rooms</strong> - For acute mental health crises</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Support the process:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Accompany your child to appointments</li>
+                                <li>Follow through with treatment recommendations</li>
+                                <li>Maintain open communication with providers</li>
+                                <li>Create a supportive home environment</li>
+                                <li>Consider family therapy if recommended</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #1e40af 0%, #7c2d12 100%); color: white; border-radius: 15px; padding: 2rem; margin-top: 3rem; text-align: center;">
+                    <h3 style="color: white; margin-bottom: 1rem;">🔍 Trust Your Instincts</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                        <strong>If something feels wrong, don't ignore it.</strong> Parents, teachers, and community members often notice changes before others do. Your observations and concerns matter.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                        <div>
+                            <strong>Document concerns</strong><br>
+                            Keep records of concerning behaviors, statements, or changes you observe
+                        </div>
+                        <div>
+                            <strong>Share information</strong><br>
+                            Communicate with other adults in the child's life (teachers, coaches, relatives)
+                        </div>
+                        <div>
+                            <strong>Act on serious concerns</strong><br>
+                            Don't wait for "proof" - err on the side of safety and seek professional guidance
+                        </div>
                     </div>
                 </div>
             </div>
@@ -791,7 +1097,7 @@
                     </p>
                     <div style="background: #e6fffa; border: 1px solid #81e6d9; border-radius: 10px; padding: 1rem; margin: 2rem auto; max-width: 700px;">
                         <p style="color: #285e61; font-weight: 500;">
-                            🔗 <strong>External Resources:</strong> These links connect you to trusted educational organizations and government agencies. 
+                            External Resources: These links connect you to trusted educational organizations and government agencies. 
                             Content is regularly updated by the source organizations.
                         </p>
                     </div>
@@ -799,73 +1105,73 @@
                 
                 <div class="resources-grid">
                     <div class="resource-card fade-in">
-                        <h3>🌈 Elementary Age (K-5)</h3>
+                        <h3>Elementary Age (K-5)</h3>
                         <p>Child-friendly materials with simple language, bright colors, and engaging visuals.</p>
                         <ul class="resource-links">
-                            <li><a href="https://www.k5learning.com/free-preschool-kindergarten-worksheets/social-emotional" target="_blank">😊 K5 Learning SEL Worksheets (Free)</a></li>
-                            <li><a href="https://www.carsondellosa.com/free-resources/subject/social-emotional-learning/" target="_blank">💝 Carson Dellosa SEL Printables</a></li>
-                            <li><a href="https://talkingtreebooks.com/teaching-resources-catalog/worksheets/worksheets-catalog.html" target="_blank">🌳 Talking Trees SEL Worksheets</a></li>
-                            <li><a href="https://www.centervention.com/social-emotional-learning-activities/" target="_blank">📚 95 Free SEL Activities</a></li>
-                            <li><a href="https://ospi.k12.wa.us/sites/default/files/2023-08/sel-parent-and-educator-activities.pdf" target="_blank">🎯 WA State SEL Parent Activities (PDF)</a></li>
+                            <li><a href="https://www.k5learning.com/free-preschool-kindergarten-worksheets/social-emotional" target="_blank">K5 Learning SEL Worksheets (Free)</a></li>
+                            <li><a href="https://www.carsondellosa.com/free-resources/subject/social-emotional-learning/" target="_blank">Carson Dellosa SEL Printables</a></li>
+                            <li><a href="https://talkingtreebooks.com/teaching-resources-catalog/worksheets/worksheets-catalog.html" target="_blank">Talking Trees SEL Worksheets</a></li>
+                            <li><a href="https://www.centervention.com/social-emotional-learning-activities/" target="_blank">95 Free SEL Activities</a></li>
+                            <li><a href="https://ospi.k12.wa.us/sites/default/files/2023-08/sel-parent-and-educator-activities.pdf" target="_blank">WA State SEL Parent Activities (PDF)</a></li>
                         </ul>
                     </div>
                     
                     <div class="resource-card fade-in">
-                        <h3>📚 Middle School (6-8)</h3>
+                        <h3>Middle School (6-8)</h3>
                         <p>Age-appropriate materials addressing social dynamics, peer pressure, and emotional regulation.</p>
                         <ul class="resource-links">
-                            <li><a href="https://www.centervention.com/social-emotional-learning-activities/" target="_blank">🤔 95+ SEL Activities (Multi-Age)</a></li>
-                            <li><a href="https://www.teacherspayteachers.com/browse/activities/projects/social-emotional/social-emotional-learning/pdf/free" target="_blank">😰 Free SEL Projects & Worksheets</a></li>
-                            <li><a href="https://www.thepathway2success.com/free-social-emotional-learning-resources/" target="_blank">👥 100+ Free SEL Resources</a></li>
-                            <li><a href="https://ct02210097.schoolwires.net/cms/lib/CT02210097/Centricity/Domain/18/SocialEmotionalLearningActivitiesFreeChoiceBoards.pdf" target="_blank">🧘 SEL Activity Choice Boards (PDF)</a></li>
+                            <li><a href="https://www.centervention.com/social-emotional-learning-activities/" target="_blank">95+ SEL Activities (Multi-Age)</a></li>
+                            <li><a href="https://www.teacherspayteachers.com/browse/activities/projects/social-emotional/social-emotional-learning/pdf/free" target="_blank">Free SEL Projects & Worksheets</a></li>
+                            <li><a href="https://www.thepathway2success.com/free-social-emotional-learning-resources/" target="_blank">100+ Free SEL Resources</a></li>
+                            <li><a href="https://ct02210097.schoolwires.net/cms/lib/CT02210097/Centricity/Domain/18/SocialEmotionalLearningActivitiesFreeChoiceBoards.pdf" target="_blank">SEL Activity Choice Boards (PDF)</a></li>
                         </ul>
                     </div>
                     
                     <div class="resource-card fade-in">
-                        <h3>🎓 High School & Teens</h3>
+                        <h3>High School & Teens</h3>
                         <p>Sophisticated materials addressing mental health, crisis recognition, and peer support.</p>
                         <ul class="resource-links">
-                            <li><a href="https://www.cdc.gov/healthy-youth/mental-health/index.html" target="_blank">💙 CDC Teen Mental Health Resources</a></li>
-                            <li><a href="https://www.nami.org/kids-teens-and-young-adults/" target="_blank">🆘 NAMI Teen Mental Health Support</a></li>
-                            <li><a href="https://www.teenline.org/" target="_blank">📞 Teen Line Crisis Support</a></li>
-                            <li><a href="https://adolescenthealth.org/resources/resources-for-adolescents-and-parents/mental-health-resources-for-adolescents-and-young-adults/" target="_blank">⚠️ Adolescent Mental Health Resources</a></li>
-                            <li><a href="https://www.nimh.nih.gov/get-involved/digital-shareables/shareable-resources-on-child-and-adolescent-mental-health" target="_blank">📊 NIMH Digital Mental Health Resources</a></li>
+                            <li><a href="https://www.cdc.gov/healthy-youth/mental-health/index.html" target="_blank">CDC Teen Mental Health Resources</a></li>
+                            <li><a href="https://www.nami.org/kids-teens-and-young-adults/" target="_blank">NAMI Teen Mental Health Support</a></li>
+                            <li><a href="https://www.teenline.org/" target="_blank">Teen Line Crisis Support</a></li>
+                            <li><a href="https://adolescenthealth.org/resources/resources-for-adolescents-and-parents/mental-health-resources-for-adolescents-and-young-adults/" target="_blank">Adolescent Mental Health Resources</a></li>
+                            <li><a href="https://www.nimh.nih.gov/get-involved/digital-shareables/shareable-resources-on-child-and-adolescent-mental-health" target="_blank">NIMH Digital Mental Health Resources</a></li>
                         </ul>
                     </div>
                     
                     <div class="resource-card fade-in">
-                        <h3>👩‍🏫 Adults & Professionals</h3>
+                        <h3>Adults & Professionals</h3>
                         <p>Comprehensive resources for educators, counselors, parents, and community members.</p>
                         <ul class="resource-links">
-                            <li><a href="https://www.secretservice.gov/protection/ntac" target="_blank">🔍 Secret Service Threat Assessment Center</a></li>
-                            <li><a href="https://rems.ed.gov/" target="_blank">📋 ED.gov Crisis Response Planning</a></li>
-                            <li><a href="https://www.nasponline.org/resources-and-publications/resources-and-podcasts/school-safety-and-crisis" target="_blank">👨‍👩‍👧‍👦 NASP School Safety Resources</a></li>
-                            <li><a href="https://www.mentalhealthfirstaid.org/" target="_blank">📖 Mental Health First Aid Training</a></li>
-                            <li><a href="https://www.cisa.gov/school-safety" target="_blank">🏫 CISA School Safety Resources</a></li>
+                            <li><a href="https://www.secretservice.gov/protection/ntac" target="_blank">Secret Service Threat Assessment Center</a></li>
+                            <li><a href="https://rems.ed.gov/" target="_blank">ED.gov Crisis Response Planning</a></li>
+                            <li><a href="https://www.nasponline.org/resources-and-publications/resources-and-podcasts/school-safety-and-crisis" target="_blank">NASP School Safety Resources</a></li>
+                            <li><a href="https://www.mentalhealthfirstaid.org/" target="_blank">Mental Health First Aid Training</a></li>
+                            <li><a href="https://www.cisa.gov/school-safety" target="_blank">CISA School Safety Resources</a></li>
                         </ul>
                     </div>
                     
                     <div class="resource-card fade-in">
-                        <h3>🔐 Firearm Safety Education</h3>
+                        <h3>Firearm Safety Education</h3>
                         <p>Educational materials about secure storage, safety protocols, and prevention measures.</p>
                         <ul class="resource-links">
-                            <li><a href="https://projectchildsafe.org/wp-content/uploads/2020/12/PCSDigitalBrochure2020.pdf" target="_blank">🔒 Project ChildSafe Complete Guide (PDF)</a></li>
-                            <li><a href="https://projectchildsafe.org/educational-materials/" target="_blank">👶 Project ChildSafe Educational Materials</a></li>
-                            <li><a href="https://besmartforkids.org/secure-gun-storage/resources/" target="_blank">📝 Be SMART Storage Resources</a></li>
-                            <li><a href="https://www.nssf.org/safety/safety-conservation-literature/" target="_blank">🔐 NSSF Safety Literature</a></li>
-                            <li><a href="https://www.ncpc.org/resources/mcgruffgunsafety/educational-handouts/" target="_blank">🐕 McGruff Gun Safety Teaching Kit</a></li>
+                            <li><a href="https://projectchildsafe.org/wp-content/uploads/2020/12/PCSDigitalBrochure2020.pdf" target="_blank">Project ChildSafe Complete Guide (PDF)</a></li>
+                            <li><a href="https://projectchildsafe.org/educational-materials/" target="_blank">Project ChildSafe Educational Materials</a></li>
+                            <li><a href="https://besmartforkids.org/secure-gun-storage/resources/" target="_blank">Be SMART Storage Resources</a></li>
+                            <li><a href="https://www.nssf.org/safety/safety-conservation-literature/" target="_blank">NSSF Safety Literature</a></li>
+                            <li><a href="https://www.ncpc.org/resources/mcgruffgunsafety/educational-handouts/" target="_blank">McGruff Gun Safety Teaching Kit</a></li>
                         </ul>
                     </div>
                     
                     <div class="resource-card fade-in">
-                        <h3>👨‍👩‍👧‍👦 Family & Community</h3>
+                        <h3>Family & Community</h3>
                         <p>Materials designed for parents, families, and community organizations.</p>
                         <ul class="resource-links">
-                            <li><a href="https://www.nasponline.org/resources-and-publications/resources-and-podcasts/school-safety-and-crisis/talking-to-children" target="_blank">💬 NASP: Talking to Children About Violence</a></li>
-                            <li><a href="https://opa.hhs.gov/adolescent-health/mental-health-adolescents/mental-health-resources" target="_blank">🏠 HHS Adolescent Mental Health Resources</a></li>
-                            <li><a href="https://www.sandyhookpromise.org/programs/start-with-hello/" target="_blank">🤝 Sandy Hook Promise Community Programs</a></li>
-                            <li><a href="https://www.sandyhookpromise.org/programs/know-the-signs/" target="_blank">👀 Know the Signs Program</a></li>
-                            <li><a href="https://www.hhs.gov/surgeongeneral/reports-and-publications/youth-mental-health/index.html" target="_blank">📊 Surgeon General Youth Mental Health</a></li>
+                            <li><a href="https://www.nasponline.org/resources-and-publications/resources-and-podcasts/school-safety-and-crisis/talking-to-children" target="_blank">NASP: Talking to Children About Violence</a></li>
+                            <li><a href="https://opa.hhs.gov/adolescent-health/mental-health-adolescents/mental-health-resources" target="_blank">HHS Adolescent Mental Health Resources</a></li>
+                            <li><a href="https://www.sandyhookpromise.org/programs/start-with-hello/" target="_blank">Sandy Hook Promise Community Programs</a></li>
+                            <li><a href="https://www.sandyhookpromise.org/programs/know-the-signs/" target="_blank">Know the Signs Program</a></li>
+                            <li><a href="https://www.hhs.gov/surgeongeneral/reports-and-publications/youth-mental-health/index.html" target="_blank">Surgeon General Youth Mental Health</a></li>
                         </ul>
                     </div>
                 </div>
@@ -883,14 +1189,14 @@
                 
                 <div class="resources-grid">
                     <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; text-align: center; transition: all 0.3s ease; color: white;">
-                        <h3 style="color: white; margin-bottom: 1rem;">✍️ Write It Out</h3>
+                        <h3 style="color: white; margin-bottom: 1rem;">Write It Out</h3>
                         <p style="margin-bottom: 1rem;">Express your thoughts and feelings through writing</p>
                         <textarea placeholder="Share what's on your mind... (completely anonymous)" style="width: 100%; height: 120px; padding: 1rem; border: none; border-radius: 10px; resize: vertical; font-family: inherit;"></textarea>
                         <button onclick="clearTextarea(this)" style="margin-top: 1rem; padding: 0.5rem 1rem; background: white; color: #f5576c; border: none; border-radius: 20px; cursor: pointer; font-weight: bold;">Clear & Reset</button>
                     </div>
                     
                     <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; text-align: center; transition: all 0.3s ease; color: white;">
-                        <h3 style="color: white; margin-bottom: 1rem;">🎨 Virtual Art Therapy</h3>
+                        <h3 style="color: white; margin-bottom: 1rem;">Virtual Art Therapy</h3>
                         <p style="margin-bottom: 1rem;">Draw, sketch, or create digital art to express emotions</p>
                         <canvas id="artCanvas" width="300" height="200" style="border: 2px solid white; border-radius: 10px; background: white; cursor: crosshair;"></canvas>
                         <div style="margin-top: 1rem;">
@@ -903,7 +1209,7 @@
                     </div>
                     
                     <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; text-align: center; transition: all 0.3s ease; color: white;">
-                        <h3 style="color: white; margin-bottom: 1rem;">🧘 Breathing Exercises</h3>
+                        <h3 style="color: white; margin-bottom: 1rem;">Breathing Exercises</h3>
                         <p style="margin-bottom: 1rem;">Calm your mind with guided breathing</p>
                         <div id="breathingCircle" style="width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.3); margin: 1rem auto; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: all 4s ease;" onclick="startBreathing()">
                             Click to Start
@@ -912,22 +1218,22 @@
                     </div>
                     
                     <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; text-align: center; transition: all 0.3s ease; color: white;">
-                        <h3 style="color: white; margin-bottom: 1rem;">💪 Stress Relief Activities</h3>
+                        <h3 style="color: white; margin-bottom: 1rem;">Stress Relief Activities</h3>
                         <p style="margin-bottom: 1rem;">Quick activities to release tension and frustration</p>
                         <div style="text-align: left; margin-top: 1rem;">
-                            <li>🏃‍♂️ Take a walk or run</li>
-                            <li>🎵 Listen to your favorite music</li>
-                            <li>📞 Call a trusted friend or family member</li>
-                            <li>🛁 Take a hot shower or bath</li>
-                            <li>🐕 Play with a pet</li>
-                            <li>🧩 Do a puzzle or play a game</li>
-                            <li>📖 Read a book or magazine</li>
-                            <li>🌱 Garden or care for plants</li>
+                            <li>Take a walk or run</li>
+                            <li>Listen to your favorite music</li>
+                            <li>Call a trusted friend or family member</li>
+                            <li>Take a hot shower or bath</li>
+                            <li>Play with a pet</li>
+                            <li>Do a puzzle or play a game</li>
+                            <li>Read a book or magazine</li>
+                            <li>Garden or care for plants</li>
                         </div>
                     </div>
                     
                     <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; text-align: center; transition: all 0.3s ease; color: white;">
-                        <h3 style="color: white; margin-bottom: 1rem;">📞 When You Need More Help</h3>
+                        <h3 style="color: white; margin-bottom: 1rem;">When You Need More Help</h3>
                         <p style="margin-bottom: 1rem;">These creative outlets are great, but sometimes we need professional support</p>
                         <div style="text-align: left; line-height: 1.8;">
                             <strong>Crisis Resources:</strong><br>
@@ -950,22 +1256,22 @@
                 <h2 class="section-title">Get Help Now</h2>
                 <div class="help-cards">
                     <div class="help-card fade-in">
-                        <h3>🚨 Emergency Situations</h3>
+                        <h3>Emergency Situations</h3>
                         <div class="help-number">911</div>
                         <p>For immediate threats or emergencies, always call 911 first. Your safety is the top priority.</p>
                     </div>
                     <div class="help-card fade-in">
-                        <h3>💭 Mental Health Crisis</h3>
+                        <h3>Mental Health Crisis</h3>
                         <div class="help-number">988</div>
                         <p>Suicide & Crisis Lifeline - 24/7 support for anyone in emotional distress or suicidal crisis.</p>
                     </div>
                     <div class="help-card fade-in">
-                        <h3>📱 Anonymous Reporting</h3>
+                        <h3>Anonymous Reporting</h3>
                         <div class="help-number">Report Online</div>
                         <p>Report concerns about potential threats or dangerous behavior safely through <a href="https://www.fbi.gov/tips" target="_blank" style="color: #ffd700; text-decoration: underline;">FBI Tips</a> or local authorities.</p>
                     </div>
                     <div class="help-card fade-in">
-                        <h3>🤝 Support Services</h3>
+                        <h3>Support Services</h3>
                         <div class="help-number">Email Us</div>
                         <p>Connect with our team at <a href="mailto:ShieldOurKidsSOK@proton.me" style="color: #ffd700; text-decoration: underline;">ShieldOurKidsSOK@proton.me</a> for resources and guidance.</p>
                     </div>
@@ -995,9 +1301,9 @@
                 <div class="footer-section">
                     <h3>Contact Info</h3>
                     <ul>
-                        <li>📧 <a href="mailto:ShieldOurKidsSOK@proton.me" style="color: #cbd5e0;">ShieldOurKidsSOK@proton.me</a></li>
-                        <li>🌐 Online Resources Available</li>
-                        <li>🤝 Community-Based Organization</li>
+                        <li><a href="mailto:ShieldOurKidsSOK@proton.me" style="color: #cbd5e0;">ShieldOurKidsSOK@proton.me</a></li>
+                        <li>Online Resources Available</li>
+                        <li>Community-Based Organization</li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -1226,4 +1532,133 @@
         });
     </script>
 </body>
-</html>
+</html>><strong>Built-in parental controls:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>iPhone:</strong> Screen Time settings - app limits, content restrictions, communication safety</li>
+                                <li><strong>Android:</strong> Family Link by Google - activity reports, app approval, location tracking</li>
+                                <li><strong>Both platforms:</strong> Check screen time reports weekly, review app usage patterns</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Third-party monitoring apps:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>Qustodio:</strong> Comprehensive monitoring across all devices</li>
+                                <li><strong>Norton Family:</strong> Web filtering, time supervision, location tracking</li>
+                                <li><strong>Bark:</strong> AI-powered content monitoring for concerning messages</li>
+                                <li><strong>Circle Home Plus:</strong> Network-level filtering for all connected devices</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>What to monitor:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>App downloads and usage time</li>
+                                <li>Web browsing history and search terms</li>
+                                <li>Text messages and instant messaging apps</li>
+                                <li>Social media posts and interactions</li>
+                                <li>Photos and videos taken/received</li>
+                                <li>Location data and movement patterns</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card fade-in" style="border-left: 5px solid #8b5cf6;">
+                        <h3>💻 Computer and Internet Monitoring</h3>
+                        <p><strong>Home computer safety and monitoring:</strong></p>
+                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <p><strong>Router-level controls:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>DNS filtering:</strong> Use OpenDNS or CleanBrowsing for automatic content blocking</li>
+                                <li><strong>Router settings:</strong> Access your router admin panel to set time restrictions</li>
+                                <li><strong>Guest networks:</strong> Put kids' devices on separate network with more restrictions</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Computer monitoring software:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>Windows:</strong> Built-in Microsoft Family features + third-party tools like Spyrix</li>
+                                <li><strong>Mac:</strong> Screen Time + third-party options like Kidslox</li>
+                                <li><strong>Chromebook:</strong> Family Link integration for school devices</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Browser monitoring:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Check browser history regularly (kids often delete, so use router logs)</li>
+                                <li>Install browser extensions like BlockSite for content filtering</li>
+                                <li>Review bookmarks and saved passwords</li>
+                                <li>Monitor downloads folder and recent file access</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card fade-in" style="border-left: 5px solid #f59e0b;">
+                        <h3>🎮 Gaming Platform Monitoring</h3>
+                        <p><strong>Gaming presents unique risks - here's how to monitor:</strong></p>
+                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <p><strong>Console parental controls:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>PlayStation:</strong> Family Management settings - spending limits, communication restrictions</li>
+                                <li><strong>Xbox:</strong> Microsoft Family settings - screen time, content filters</li>
+                                <li><strong>Nintendo Switch:</strong> Nintendo Switch Parental Controls app</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>PC gaming monitoring:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>Steam:</strong> Family View mode, purchase restrictions</li>
+                                <li><strong>Discord:</strong> Most concerning app - monitor voice/text chat carefully</li>
+                                <li><strong>Epic Games:</strong> Parental controls in account settings</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Warning signs in gaming:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Secretive about who they're playing with</li>
+                                <li>Using voice chat with strangers</li>
+                                <li>Receiving gifts or money from online "friends"</li>
+                                <li>Dramatic mood changes after gaming sessions</li>
+                                <li>Mentions of meeting online friends in person</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card fade-in" style="border-left: 5px solid #ef4444;">
+                        <h3>🚨 Red Flags in Digital Activity</h3>
+                        <p><strong>Concerning digital behaviors to watch for:</strong></p>
+                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <p><strong>Immediate concern indicators:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Researching weapons, violence, or mass shooting events</li>
+                                <li>Joining extremist groups or forums</li>
+                                <li>Creating detailed plans for violence</li>
+                                <li>Expressing hatred toward specific groups or individuals</li>
+                                <li>Sharing or creating violent content</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Behavioral changes:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Suddenly becoming very secretive about device usage</li>
+                                <li>Quickly switching screens when you approach</li>
+                                <li>Using devices only in private spaces</li>
+                                <li>Deleting history or using incognito mode excessively</li>
+                                <li>Creating multiple social media accounts</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>Communication patterns:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Receiving messages from unknown adults</li>
+                                <li>Engaging in conversations about violence or revenge</li>
+                                <li>Discussing depression, suicide, or self-harm</li>
+                                <li>Planning to meet online contacts in person</li>
+                                <li>Sharing personal information with strangers</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card fade-in" style="border-left: 5px solid #059669;">
+                        <h3>⚖️ Balancing Privacy and Safety</h3>
+                        <p><strong>Maintaining trust while ensuring protection:</strong></p>
+                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
+                            <p><strong>Age-appropriate monitoring:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>Ages 6-10:</strong> Full supervision, limited independent access</li>
+                                <li><strong>Ages 11-14:</strong> Monitored access with clear rules and consequences</li>
+                                <li><strong>Ages 15-17:</strong> Graduated independence with spot-checking and trust-building</li>
+                                <li><strong>18+:</strong> Respect privacy while maintaining open communication</li>
+                            </ul>
+                            
+                            <p
