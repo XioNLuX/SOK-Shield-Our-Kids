@@ -164,6 +164,17 @@
             list-style: none;
             gap: 2rem;
         }
+
+        /* Mobile: expanded nav state */
+        .nav-links.open {
+            display: flex !important;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            text-align: center;
+            padding-top: 1rem;
+        }
+    
         
         .nav-links a {
             text-decoration: none;
@@ -846,6 +857,7 @@
                     </div>
                     
                     <div class="resource-card fade-in" style="border-left: 5px solid #ef4444;">
+                        <span id="know-signs"></span>
                         <h3>🚨 Red Flags in Digital Activity</h3>
                         <p><strong>Concerning digital behaviors to watch for:</strong></p>
                         <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
@@ -1812,10 +1824,84 @@
             observer.observe(el);
         });
 
-        // Mobile menu toggle (placeholder for future functionality)
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            alert('Mobile menu functionality would be implemented here for a fully functional site.');
-        });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu(forceState) {
+            const nav = document.querySelector('.nav-links');
+            const menuBtn = document.querySelector('.mobile-menu');
+            const isOpen = nav.classList.contains('open');
+            const nextOpen = typeof forceState === 'boolean' ? forceState : !isOpen;
+            nav.classList.toggle('open', nextOpen);
+            menuBtn.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+        }
+
+        // Click handler for mobile menu button (in addition to inline onclick)
+        (function(){
+            const menuBtn = document.querySelector('.mobile-menu');
+            menuBtn.addEventListener('click', function(e){
+                e.stopPropagation();
+                toggleMobileMenu();
+            });
+        })();
+    
+        // Site search: simple highlight and scroll to first match
+        function performSearch() {
+            const input = document.getElementById('siteSearch');
+            const query = (input.value || '').trim();
+            // Clear previous highlights
+            document.querySelectorAll('mark.sok-search-hit').forEach(m => {
+                const parent = m.parentNode;
+                parent.replaceChild(document.createTextNode(m.textContent), m);
+                parent.normalize();
+            });
+            if (!query) {
+                alert('Please enter a search term.');
+                return;
+            }
+            // Build a case-insensitive regex escaping special chars
+            const esc = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const re = new RegExp(esc, 'gi');
+            // Search within main content
+            const root = document.querySelector('main') || document.body;
+            let found = false, firstHit = null;
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    // skip scripts/styles
+                    if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                    if (node.parentElement && ['SCRIPT','STYLE','NOSCRIPT'].includes(node.parentElement.tagName)) return NodeFilter.FILTER_REJECT;
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            });
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            nodes.forEach(node => {
+                const text = node.nodeValue;
+                let m;
+                if ((m = text.match(re))) {
+                    found = true;
+                    const frag = document.createDocumentFragment();
+                    let lastIndex = 0;
+                    text.replace(re, (match, offset) => {
+                        frag.appendChild(document.createTextNode(text.slice(lastIndex, offset)));
+                        const mark = document.createElement('mark');
+                        mark.className = 'sok-search-hit';
+                        mark.textContent = match;
+                        frag.appendChild(mark);
+                        lastIndex = offset + match.length;
+                        if (!firstHit) firstHit = mark;
+                        return match;
+                    });
+                    frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+                    node.parentNode.replaceChild(frag, node);
+                }
+            });
+            if (found && firstHit) {
+                firstHit.scrollIntoView({behavior: 'smooth', block: 'center'});
+            } else {
+                alert('No results found.');
+            }
+        }
+    
 
         // Resource link handler
         function showInfo(resource) {
@@ -1960,6 +2046,37 @@
 
         // Initialize functions on DOM load
         document.addEventListener('DOMContentLoaded', function() {
+            // Close mobile nav when clicking outside
+            document.addEventListener('click', function(e){
+                const nav = document.querySelector('.nav-links');
+                const menuBtn = document.querySelector('.mobile-menu');
+                if (nav.classList.contains('open') && !nav.contains(e.target) && !menuBtn.contains(e.target)) {
+                    toggleMobileMenu(false);
+                }
+            });
+            // Close on link click (mobile)
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.addEventListener('click', () => toggleMobileMenu(false));
+            });
+            // Recalculate on resize
+            window.addEventListener('resize', () => {
+                const nav = document.querySelector('.nav-links');
+                if (window.innerWidth > 768) {
+                    nav.classList.remove('open');
+                }
+            });
+            // Run search on Enter
+            const searchInput = document.getElementById('siteSearch');
+            if (searchInput) {
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        performSearch();
+                    }
+                });
+
+            }
+
             // Add hover effects to cards
             const cards = document.querySelectorAll('.mission-card, .resource-card, .help-card');
             cards.forEach(card => {
