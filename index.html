@@ -74,6 +74,7 @@
             border-radius: 25px;
             padding: 0.25rem 0.5rem;
             min-width: 250px;
+            position: relative;
         }
         
         .search-container input {
@@ -164,17 +165,6 @@
             list-style: none;
             gap: 2rem;
         }
-
-        /* Mobile: expanded nav state */
-        .nav-links.open {
-            display: flex !important;
-            flex-direction: column;
-            gap: 1rem;
-            width: 100%;
-            text-align: center;
-            padding-top: 1rem;
-        }
-    
         
         .nav-links a {
             text-decoration: none;
@@ -208,6 +198,58 @@
             background: #4a5568;
             margin: 3px 0;
             transition: 0.3s;
+        }
+        
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 140px;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem;
+        }
+        
+        .mobile-nav ul li {
+            margin: 1rem 0;
+        }
+        
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav ul li a:hover {
+            background: linear-gradient(45deg, #4299e1, #667eea);
+            color: white;
         }
         
         /* Hero Section */
@@ -649,6 +691,7 @@
             <div class="search-container">
                 <input type="search" id="siteSearch" placeholder="Search resources, warning signs, help..." aria-label="Search site content">
                 <button onclick="performSearch()" aria-label="Search">🔍</button>
+                <div class="search-results"></div>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -662,12 +705,28 @@
                 <li><a href="#help">Get Help</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu" onclick="toggleMobileMenu()" role="button" tabindex="0" aria-label="Open mobile menu">
+            <div class="mobile-menu" onclick="toggleMobileMenu()" role="button" tabindex="0" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </nav>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#mission" onclick="closeMobileMenu()">Mission</a></li>
+                <li><a href="#digital-monitoring" onclick="closeMobileMenu()">Digital Safety</a></li>
+                <li><a href="#know-signs" onclick="closeMobileMenu()">Know the Signs</a></li>
+                <li><a href="#resources" onclick="closeMobileMenu()">Resources</a></li>
+                <li><a href="#firearms" onclick="closeMobileMenu()">Firearm Safety</a></li>
+                <li><a href="#materials" onclick="closeMobileMenu()">Educational Materials</a></li>
+                <li><a href="#wellness" onclick="closeMobileMenu()">Wellness Hub</a></li>
+                <li><a href="#help" onclick="closeMobileMenu()">Get Help</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+        </div>
         
         <!-- Crisis Alert Bar -->
         <div class="crisis-alert" role="alert">
@@ -857,7 +916,6 @@
                     </div>
                     
                     <div class="resource-card fade-in" style="border-left: 5px solid #ef4444;">
-                        <span id="know-signs"></span>
                         <h3>🚨 Red Flags in Digital Activity</h3>
                         <p><strong>Concerning digital behaviors to watch for:</strong></p>
                         <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
@@ -961,243 +1019,7 @@
             </div>
         </section>
 
-        <section id="threat-assessment" class="section" style="background: linear-gradient(rgba(245, 247, 250, 0.95), rgba(245, 247, 250, 0.95)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;">
-            <div class="container">
-                <h2 class="section-title">Threat Assessment & Response Protocols</h2>
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <p style="font-size: 1.2rem; color: #4a5568; max-width: 900px; margin: 0 auto;">
-                        Systematic approaches to evaluating and responding to potential threats, designed for educators, administrators, law enforcement, and community leaders working together.
-                    </p>
-                </div>
-                
-                <div class="resources-grid">
-                    <div class="resource-card fade-in" style="border-left: 5px solid #dc2626;">
-                        <h3>🚨 Immediate Threat Response (Code Red)</h3>
-                        <p><strong>When someone has made direct threats or has access to weapons:</strong></p>
-                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
-                            <p><strong>Within 5 minutes:</strong></p>
-                            <ul style="margin-left: 1rem; list-style-type: decimal;">
-                                <li>Call 911 immediately - do not investigate alone</li>
-                                <li>Notify school administration/security</li>
-                                <li>Implement lockdown procedures if in school setting</li>
-                                <li>Document exact words/actions observed</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Within 30 minutes:</strong></p>
-                            <ul style="margin-left: 1rem; list-style-type: decimal;">
-                                <li>Law enforcement conducts safety assessment</li>
-                                <li>Parents/guardians notified by officials</li>
-                                <li>Crisis team activated</li>
-                                <li>Secure any weapons or concerning materials</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Next 24 hours:</strong></p>
-                            <ul style="margin-left: 1rem; list-style-type: decimal;">
-                                <li>Mental health evaluation arranged</li>
-                                <li>Safety plan developed</li>
-                                <li>Community notification if appropriate</li>
-                                <li>Support services mobilized</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-card fade-in" style="border-left: 5px solid #f59e0b;">
-                        <h3>⚠️ Moderate Concern Response (Code Yellow)</h3>
-                        <p><strong>Concerning behaviors without immediate threat:</strong></p>
-                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
-                            <p><strong>Assessment criteria:</strong></p>
-                            <ul style="margin-left: 1rem;">
-                                <li>Significant behavioral changes</li>
-                                <li>Social isolation or withdrawal</li>
-                                <li>Expressions of hopelessness or anger</li>
-                                <li>Decline in academic/work performance</li>
-                                <li>Substance abuse or risk-taking behaviors</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Response protocol:</strong></p>
-                            <ul style="margin-left: 1rem; list-style-type: decimal;">
-                                <li>Gather information from multiple sources</li>
-                                <li>Consult with threat assessment team</li>
-                                <li>Interview the individual (if safe)</li>
-                                <li>Contact parents/support system</li>
-                                <li>Develop monitoring and support plan</li>
-                                <li>Schedule follow-up within 72 hours</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-card fade-in" style="border-left: 5px solid #059669;">
-                        <h3>📋 Threat Assessment Team Composition</h3>
-                        <p><strong>Essential team members and their roles:</strong></p>
-                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
-                            <p><strong>Core team members:</strong></p>
-                            <ul style="margin-left: 1rem;">
-                                <li><strong>Team Leader:</strong> Principal, superintendent, or designated administrator</li>
-                                <li><strong>Mental Health Professional:</strong> School psychologist, counselor, or social worker</li>
-                                <li><strong>Law Enforcement:</strong> School resource officer or liaison officer</li>
-                                <li><strong>Academic Representative:</strong> Teacher or department head</li>
-                                <li><strong>Legal Advisor:</strong> District attorney or legal counsel (as needed)</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Consultation resources:</strong></p>
-                            <ul style="margin-left: 1rem;">
-                                <li>Special education coordinator</li>
-                                <li>Community mental health providers</li>
-                                <li>Probation officers (if applicable)</li>
-                                <li>Threat assessment specialists</li>
-                                <li>Cultural liaisons for diverse communities</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Meeting protocols:</strong></p>
-                            <ul style="margin-left: 1rem;">
-                                <li>Emergency meetings within 2 hours for Code Red</li>
-                                <li>Scheduled meetings within 24 hours for Code Yellow</li>
-                                <li>Weekly follow-up meetings for ongoing cases</li>
-                                <li>Documentation requirements and confidentiality protocols</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-card fade-in" style="border-left: 5px solid #7c3aed;">
-                        <h3>👮‍♀️ Law Enforcement Protocols</h3>
-                        <p><strong>Specific guidance for police and school resource officers:</strong></p>
-                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
-                            <p><strong>Response priorities:</strong></p>
-                            <ul style="margin-left: 1rem; list-style-type: decimal;">
-                                <li><strong>Safety first:</strong> Secure scene and protect potential victims</li>
-                                <li><strong>Evidence preservation:</strong> Document threats, collect materials</li>
-                                <li><strong>De-escalation:</strong> Use trauma-informed approaches</li>
-                                <li><strong>Investigation:</strong> Determine credibility and capability</li>
-                                <li><strong>Intervention:</strong> Connect to mental health resources</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Legal considerations:</strong></p>
-                            <ul style="margin-left: 1rem;">
-                                <li>Mandatory reporting requirements vary by state</li>
-                                <li>Search and seizure protocols for minors</li>
-                                <li>Miranda rights and juvenile justice procedures</li>
-                                <li>Confidentiality vs. duty to warn obligations</li>
-                                <li>Documentation for potential court proceedings</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Community coordination:</strong></p>
-                            <ul style="margin-left: 1rem;">
-                                <li>Information sharing protocols with schools</li>
-                                <li>Mental health hold procedures</li>
-                                <li>Family notification requirements</li>
-                                <li>Media response guidelines</li>
-                                <li>Follow-up monitoring responsibilities</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-card fade-in" style="border-left: 5px solid #0891b2;">
-                        <h3>📊 Evidence-Based Threat Assessment</h3>
-                        <p><strong>Research-backed evaluation methods:</strong></p>
-                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
-                            <p><strong>Key research findings (Sources: FBI, Secret Service, Virginia Tech studies):</strong></p>
-                            <ul style="margin-left: 1rem;">
-                                <li>Most attackers showed concerning behavior before incidents (93%)</li>
-                                <li>Multiple people knew about plans in advance (81%)</li>
-                                <li>Attackers typically experienced multiple stressors (76%)</li>
-                                <li>Most had access to weapons used (95%)</li>
-                                <li>Plans were often shared on social media (76%)</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Assessment factors (weighted by research):</strong></p>
-                            <ul style="margin-left: 1rem;">
-                                <li><strong>High risk:</strong> Specific plans, timeline, weapon access, final acts</li>
-                                <li><strong>Moderate risk:</strong> Grievances, social isolation, capability concerns</li>
-                                <li><strong>Protective factors:</strong> Strong relationships, help-seeking, future plans</li>
-                                <li><strong>Dynamic factors:</strong> Recent stressors, substance use, mental health changes</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Validation methods:</strong></p>
-                            <ul style="margin-left: 1rem;">
-                                <li>Structured Professional Judgment (SPJ) tools</li>
-                                <li>Multiple source information gathering</li>
-                                <li>Behavioral observation and documentation</li>
-                                <li>Risk reassessment at regular intervals</li>
-                                <li>Outcome tracking and continuous improvement</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-card fade-in" style="border-left: 5px solid #be185d;">
-                        <h3>🎯 Implementation Checklist for Administrators</h3>
-                        <p><strong>Essential components for effective threat assessment programs:</strong></p>
-                        <div style="text-align: left; margin-top: 1rem; line-height: 1.8;">
-                            <p><strong>Policy development:</strong></p>
-                            <ul style="margin-left: 1rem; list-style-type: checkbox;">
-                                <li>☐ Written threat assessment policy adopted by board</li>
-                                <li>☐ Clear reporting procedures established</li>
-                                <li>☐ Team roles and responsibilities defined</li>
-                                <li>☐ Training requirements specified</li>
-                                <li>☐ Documentation and record-keeping protocols</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Training requirements:</strong></p>
-                            <ul style="margin-left: 1rem; list-style-type: checkbox;">
-                                <li>☐ All staff trained in threat recognition (annually)</li>
-                                <li>☐ Team members receive specialized training (16+ hours)</li>
-                                <li>☐ Law enforcement partnership established</li>
-                                <li>☐ Mental health professionals identified</li>
-                                <li>☐ Regular drills and scenario practice</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem;"><strong>Resources needed:</strong></p>
-                            <ul style="margin-left: 1rem; list-style-type: checkbox;">
-                                <li>☐ Dedicated meeting space with privacy</li>
-                                <li>☐ Secure file storage for sensitive information</li>
-                                <li>☐ Communication system for rapid team assembly</li>
-                                <li>☐ Budget for training, consultation, and mental health services</li>
-                                <li>☐ Legal support for complex cases</li>
-                            </ul>
-                            
-                            <p style="margin-top: 1rem; font-style: italic; color: #4a5568;">
-                                <strong>Budget estimate:</strong> Comprehensive threat assessment programs typically require $15,000-$50,000 annually for training, consultation, and coordination, depending on district size.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="background: linear-gradient(135deg, #dc2626 0%, #7c2d12 100%); color: white; border-radius: 15px; padding: 2rem; margin-top: 3rem;">
-                    <h3 style="color: white; margin-bottom: 1rem; text-align: center;">⚖️ Legal and Ethical Considerations</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                        <div>
-                            <h4 style="color: #fbbf24; margin-bottom: 1rem;">Privacy Rights</h4>
-                            <ul style="line-height: 1.8; font-size: 0.9rem;">
-                                <li>FERPA protections for student records</li>
-                                <li>HIPAA considerations for health information</li>
-                                <li>Due process rights in disciplinary actions</li>
-                                <li>First Amendment considerations for expression</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 style="color: #fbbf24; margin-bottom: 1rem;">Duty to Warn</h4>
-                            <ul style="line-height: 1.8; font-size: 0.9rem;">
-                                <li>Tarasoff obligations for mental health professionals</li>
-                                <li>Mandatory reporting for child abuse</li>
-                                <li>Imminent danger exceptions to confidentiality</li>
-                                <li>Documentation requirements for legal protection</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 style="color: #fbbf24; margin-bottom: 1rem;">Liability Protection</h4>
-                            <ul style="line-height: 1.8; font-size: 0.9rem;">
-                                <li>Good faith reporting protections</li>
-                                <li>Following established protocols</li>
-                                <li>Training documentation importance</li>
-                                <li>Insurance coverage considerations</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <p style="text-align: center; margin-top: 2rem; font-style: italic;">
-                        <strong>Disclaimer:</strong> This guidance is for educational purposes. Always consult with legal counsel for specific situations and ensure compliance with local, state, and federal laws.
-                    </p>
-                </div>
-            </div>
-        </section>
+        <section id="know-signs" class="section" style="background: linear-gradient(rgba(245, 247, 250, 0.95), rgba(245, 247, 250, 0.95)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;">
             <div class="container">
                 <h2 class="section-title">Know the Signs</h2>
                 <div style="text-align: center; margin-bottom: 3rem;">
@@ -1792,6 +1614,99 @@
     </footer>
 
     <script>
+        // Search functionality
+        const searchData = [
+            { title: "Crisis Help Numbers", description: "911 Emergency, 988 Crisis Line, Crisis Text Line", section: "help" },
+            { title: "Warning Signs", description: "Immediate warning signs, behavioral changes, mental health red flags", section: "know-signs" },
+            { title: "Mental Health Resources", description: "Crisis support, counseling, therapy resources", section: "resources" },
+            { title: "Firearm Safety", description: "Secure storage, gun safety, prevention measures", section: "firearms" },
+            { title: "Digital Monitoring", description: "Parent monitoring tools, smartphone safety, online activity", section: "digital-monitoring" },
+            { title: "Threat Assessment", description: "Emergency protocols, response procedures, team coordination", section: "know-signs" },
+            { title: "School Safety", description: "Prevention programs, safety protocols, educator resources", section: "resources" },
+            { title: "Educational Materials", description: "Age-appropriate resources, teaching tools, family guides", section: "materials" },
+            { title: "Wellness Activities", description: "Art therapy, breathing exercises, stress relief", section: "wellness" },
+            { title: "Support Groups", description: "Community support, family resources, peer help", section: "resources" }
+        ];
+
+        function performSearch() {
+            const query = document.getElementById('siteSearch').value.toLowerCase().trim();
+            const resultsContainer = document.querySelector('.search-results');
+            
+            if (query.length < 2) {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+
+            const results = searchData.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.description.toLowerCase().includes(query)
+            );
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div class="search-result-item"><h4>No results found</h4><p>Try different keywords like "crisis", "warning signs", "safety", or "help"</p></div>';
+            } else {
+                resultsContainer.innerHTML = results.map(result => 
+                    `<div class="search-result-item" onclick="navigateToSection('${result.section}')">
+                        <h4>${result.title}</h4>
+                        <p>${result.description}</p>
+                    </div>`
+                ).join('');
+            }
+            
+            resultsContainer.style.display = 'block';
+        }
+
+        function navigateToSection(sectionId) {
+            document.querySelector('.search-results').style.display = 'none';
+            document.getElementById('siteSearch').value = '';
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Search input event listeners
+        document.getElementById('siteSearch').addEventListener('input', performSearch);
+        document.getElementById('siteSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Close search results when clicking outside
+        document.addEventListener('click', function(e) {
+            const searchContainer = document.querySelector('.search-container');
+            const resultsContainer = document.querySelector('.search-results');
+            if (!searchContainer.contains(e.target)) {
+                resultsContainer.style.display = 'none';
+            }
+        });
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            mobileMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            mobileMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            if (!mobileMenu.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1823,85 +1738,6 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-
-        
-        // Mobile menu toggle
-        function toggleMobileMenu(forceState) {
-            const nav = document.querySelector('.nav-links');
-            const menuBtn = document.querySelector('.mobile-menu');
-            const isOpen = nav.classList.contains('open');
-            const nextOpen = typeof forceState === 'boolean' ? forceState : !isOpen;
-            nav.classList.toggle('open', nextOpen);
-            menuBtn.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
-        }
-
-        // Click handler for mobile menu button (in addition to inline onclick)
-        (function(){
-            const menuBtn = document.querySelector('.mobile-menu');
-            menuBtn.addEventListener('click', function(e){
-                e.stopPropagation();
-                toggleMobileMenu();
-            });
-        })();
-    
-        // Site search: simple highlight and scroll to first match
-        function performSearch() {
-            const input = document.getElementById('siteSearch');
-            const query = (input.value || '').trim();
-            // Clear previous highlights
-            document.querySelectorAll('mark.sok-search-hit').forEach(m => {
-                const parent = m.parentNode;
-                parent.replaceChild(document.createTextNode(m.textContent), m);
-                parent.normalize();
-            });
-            if (!query) {
-                alert('Please enter a search term.');
-                return;
-            }
-            // Build a case-insensitive regex escaping special chars
-            const esc = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const re = new RegExp(esc, 'gi');
-            // Search within main content
-            const root = document.querySelector('main') || document.body;
-            let found = false, firstHit = null;
-            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-                acceptNode(node) {
-                    // skip scripts/styles
-                    if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-                    if (node.parentElement && ['SCRIPT','STYLE','NOSCRIPT'].includes(node.parentElement.tagName)) return NodeFilter.FILTER_REJECT;
-                    return NodeFilter.FILTER_ACCEPT;
-                }
-            });
-            const nodes = [];
-            while (walker.nextNode()) nodes.push(walker.currentNode);
-            nodes.forEach(node => {
-                const text = node.nodeValue;
-                let m;
-                if ((m = text.match(re))) {
-                    found = true;
-                    const frag = document.createDocumentFragment();
-                    let lastIndex = 0;
-                    text.replace(re, (match, offset) => {
-                        frag.appendChild(document.createTextNode(text.slice(lastIndex, offset)));
-                        const mark = document.createElement('mark');
-                        mark.className = 'sok-search-hit';
-                        mark.textContent = match;
-                        frag.appendChild(mark);
-                        lastIndex = offset + match.length;
-                        if (!firstHit) firstHit = mark;
-                        return match;
-                    });
-                    frag.appendChild(document.createTextNode(text.slice(lastIndex)));
-                    node.parentNode.replaceChild(frag, node);
-                }
-            });
-            if (found && firstHit) {
-                firstHit.scrollIntoView({behavior: 'smooth', block: 'center'});
-            } else {
-                alert('No results found.');
-            }
-        }
-    
 
         // Resource link handler
         function showInfo(resource) {
@@ -2046,37 +1882,6 @@
 
         // Initialize functions on DOM load
         document.addEventListener('DOMContentLoaded', function() {
-            // Close mobile nav when clicking outside
-            document.addEventListener('click', function(e){
-                const nav = document.querySelector('.nav-links');
-                const menuBtn = document.querySelector('.mobile-menu');
-                if (nav.classList.contains('open') && !nav.contains(e.target) && !menuBtn.contains(e.target)) {
-                    toggleMobileMenu(false);
-                }
-            });
-            // Close on link click (mobile)
-            document.querySelectorAll('.nav-links a').forEach(a => {
-                a.addEventListener('click', () => toggleMobileMenu(false));
-            });
-            // Recalculate on resize
-            window.addEventListener('resize', () => {
-                const nav = document.querySelector('.nav-links');
-                if (window.innerWidth > 768) {
-                    nav.classList.remove('open');
-                }
-            });
-            // Run search on Enter
-            const searchInput = document.getElementById('siteSearch');
-            if (searchInput) {
-                searchInput.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        performSearch();
-                    }
-                });
-
-            }
-
             // Add hover effects to cards
             const cards = document.querySelectorAll('.mission-card, .resource-card, .help-card');
             cards.forEach(card => {
